@@ -6,7 +6,7 @@ jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 test("getLastSleep()", () => {
-  const dummyResponse = { data: JSON.parse(data.JSON_STRING_SLEEPS) };
+  const dummyResponse: any = { data: JSON.parse(data.JSON_STRING_SLEEPS) };
   mockedAxios.get.mockResolvedValue(dummyResponse);
   return fitbit
     .getLastSleep("token")
@@ -14,7 +14,7 @@ test("getLastSleep()", () => {
 });
 
 test("getLastSleep(): in case of expired_token error", () => {
-  const dummyResponse = {
+  const dummyResponse: any = {
     response: { data: JSON.parse(data.JSON_STRING_ERROR) }
   };
   mockedAxios.get.mockRejectedValue(dummyResponse);
@@ -24,7 +24,7 @@ test("getLastSleep(): in case of expired_token error", () => {
 });
 
 test("getNewToken()", () => {
-  const dummyResponse = { data: JSON.parse(data.JSON_STRING_TOKEN) };
+  const dummyResponse: any = { data: JSON.parse(data.JSON_STRING_TOKEN) };
   mockedAxios.post.mockResolvedValue(dummyResponse);
   return fitbit
     .getNewToken("refresh_token")
