@@ -8,9 +8,10 @@ test("generateMessage()", () => {
     duration: 0,
     startTime: new Date("2019-01-01T01:11:11.000"),
     endTime: new Date("2019-01-01T07:11:11.000"),
-    minutesAsleep: 0,
+    minutesAsleep: 321,
     minutesAwake: 0
   };
   const result = generator.generateMessage(dummySleep);
-  expect(result).toEqual("昨日は01:11に寝て、07:11に起きたよ！");
+  const expectedMessage = `昨日は01:11に寝て、07:11に起きたよ。6時間0分の睡眠だよ。（実際に寝てたのは5時間21分だよ）`;
+  expect(result).toEqual(expectedMessage);
 });
