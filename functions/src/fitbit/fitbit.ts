@@ -34,11 +34,6 @@ interface TokenResponse {
   refresh_token: string;
 }
 
-interface Result {
-  sleep: string;
-  error: Error;
-}
-
 export const getNewToken = function(refreshToken: string) {
   const url = "https://api.fitbit.com/oauth2/token";
   const token = `Basic ${defaultConfig.fitbitAuthHeaderBasic}`;
